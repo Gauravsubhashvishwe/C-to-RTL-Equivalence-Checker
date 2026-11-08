@@ -1,11 +1,11 @@
 ﻿# C-to-RTL Equivalence Checker
-
+<!-- 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![Formal Verification: Z3](https://img.shields.io/badge/Formal%20Solver-Z3%20SMT-brightgreen.svg)](https://github.com/Z3Prover/z3)
 [![Tests: Pytest](https://img.shields.io/badge/tests-18%2F18%20passed-brightgreen.svg)](tests/test_equivalence.py)
 
----
+--- -->
 
 ## 1. Executive Summary & Objective
 
