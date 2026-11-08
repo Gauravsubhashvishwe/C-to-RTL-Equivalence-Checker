@@ -1,4 +1,4 @@
-# SymbiYosys configuration — FIR Filter Formal Verification
+ï»¿# SymbiYosys configuration ï¿½ FIR Filter Formal Verification
 # Run: sby -f 03_fir_filter_pipelined.sby
 [options]
 mode prove
@@ -8,10 +8,10 @@ depth 10
 smtbmc z3
 
 [script]
-read -formal D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\03_fir_filter_pipelined/rtl_valid.v
+read -formal ../benchmarks/03_fir_filter_pipelined/rtl_valid.v
 read -sv 03_fir_filter_pipelined_formal.sv
 prep -top fir_formal_wrapper
 
 [files]
-D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\03_fir_filter_pipelined/rtl_valid.v
+../benchmarks/03_fir_filter_pipelined/rtl_valid.v
 03_fir_filter_pipelined_formal.sv

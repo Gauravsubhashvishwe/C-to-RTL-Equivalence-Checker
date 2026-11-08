@@ -1,0 +1,35 @@
+﻿# Explicit exclusion requested by user
+PROJECT_REPORT.md
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*.class
+*.so
+build/
+dist/
+*.egg-info/
+
+# Pytest & testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs & temp
+*.log
+cli_output.txt
+pytest_output.txt
+
+# Editor & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

@@ -1,4 +1,4 @@
-# C-to-RTL Equivalence Checker
+﻿# C-to-RTL Equivalence Checker
 
 <!-- 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -67,7 +67,7 @@ flowchart TD
 The framework includes six diverse digital VLSI benchmarks representing the classic architectural paradigms in VLSI design, including industry-standard AMBA on-chip interconnect protocols:
 
 ```
-c2rtl-equiv-checker/
+C-to-RTL-Equivalence-Checker/
   benchmarks/
     01_alu_combinational/      -> 32-bit Combinational ALU (CEC)
     02_gcd_sequential/         -> Multi-cycle Euclidean GCD FSMD (SEC, variable latency)
@@ -112,18 +112,18 @@ The following results were measured on **Python 3.13.1** with **Z3 Solver v5.3.3
 
 | Benchmark                         | Architecture Type       | RTL Mode |   Verification Result   | Solver Time | Discovered Counterexample / Witness                                               |
 | :-------------------------------- | :---------------------- | :------- | :---------------------: | :---------: | :-------------------------------------------------------------------------------- |
-| **01_alu_combinational**    | 32-bit Combinational    | VALID    | **EQUIVALENT ✓** |   0.20 ms   | *Miter UNSAT — Functional equivalence proven*                                  |
-| **01_alu_combinational**    | 32-bit Combinational    | BUGGY    | **NOT EQUIV ✗** |   6.03 ms   | `a=65535, b=16, op=5` $\to$ C=`4294901760`, RTL=`65535`                   |
-| **02_gcd_sequential**       | Multi-cycle FSMD        | VALID    | **EQUIVALENT ✓** |   0.24 ms   | *Miter UNSAT — Functional equivalence proven ($K=16$)*                       |
-| **02_gcd_sequential**       | Multi-cycle FSMD        | BUGGY    | **NOT EQUIV ✗** |  164.96 ms  | `a=92, b=95` $\to$ C=`47`, RTL=`253`                                      |
-| **03_fir_filter_pipelined** | 3-Stage Pipeline        | VALID    | **EQUIVALENT ✓** |   0.09 ms   | *Miter UNSAT — Functional equivalence proven*                                  |
-| **03_fir_filter_pipelined** | 3-Stage Pipeline        | BUGGY    | **NOT EQUIV ✗** |  11.80 ms  | `x0=3837, x1=20169, x2=44692, x3=48845` $\to$ C=`4294925359`, RTL=`23599` |
-| **04_crc8_controller**      | Bit-Serial Controller   | VALID    | **EQUIVALENT ✓** |   0.57 ms   | *Miter UNSAT — Functional equivalence proven*                                  |
-| **04_crc8_controller**      | Bit-Serial Controller   | BUGGY    | **NOT EQUIV ✗** |   6.32 ms   | `data=81 (0x51)` $\to$ C=`67 (0x43)`, RTL=`28 (0x1C)`                     |
-| **05_apb_protocol**         | Protocol Handshake      | VALID    | **EQUIVALENT ✓** |   0.06 ms   | *Miter UNSAT — Protocol invariant verified*                                    |
-| **05_apb_protocol**         | Protocol Handshake      | BUGGY    | **NOT EQUIV ✗** |   2.26 ms   | `psel=1, penable=0, pwrite=1, curr=255` $\to$ C=`255`, RTL=`0`            |
-| **06_axi_protocol**         | Multi-Channel Handshake | VALID    | **EQUIVALENT ✓** |   0.07 ms   | *Miter UNSAT — Channel invariant verified*                                     |
-| **06_axi_protocol**         | Multi-Channel Handshake | BUGGY    | **NOT EQUIV ✗** |   1.58 ms   | `awvalid=0, wvalid=1, wstrb=1, curr=255` $\to$ C=`255`, RTL=`0`           |
+| **01_alu_combinational**    | 32-bit Combinational    | VALID    | **EQUIVALENT âœ“** |   0.20 ms   | *Miter UNSAT â€” Functional equivalence proven*                                  |
+| **01_alu_combinational**    | 32-bit Combinational    | BUGGY    | **NOT EQUIV âœ—** |   6.03 ms   | `a=65535, b=16, op=5` $\to$ C=`4294901760`, RTL=`65535`                   |
+| **02_gcd_sequential**       | Multi-cycle FSMD        | VALID    | **EQUIVALENT âœ“** |   0.24 ms   | *Miter UNSAT â€” Functional equivalence proven ($K=16$)*                       |
+| **02_gcd_sequential**       | Multi-cycle FSMD        | BUGGY    | **NOT EQUIV âœ—** |  164.96 ms  | `a=92, b=95` $\to$ C=`47`, RTL=`253`                                      |
+| **03_fir_filter_pipelined** | 3-Stage Pipeline        | VALID    | **EQUIVALENT âœ“** |   0.09 ms   | *Miter UNSAT â€” Functional equivalence proven*                                  |
+| **03_fir_filter_pipelined** | 3-Stage Pipeline        | BUGGY    | **NOT EQUIV âœ—** |  11.80 ms  | `x0=3837, x1=20169, x2=44692, x3=48845` $\to$ C=`4294925359`, RTL=`23599` |
+| **04_crc8_controller**      | Bit-Serial Controller   | VALID    | **EQUIVALENT âœ“** |   0.57 ms   | *Miter UNSAT â€” Functional equivalence proven*                                  |
+| **04_crc8_controller**      | Bit-Serial Controller   | BUGGY    | **NOT EQUIV âœ—** |   6.32 ms   | `data=81 (0x51)` $\to$ C=`67 (0x43)`, RTL=`28 (0x1C)`                     |
+| **05_apb_protocol**         | Protocol Handshake      | VALID    | **EQUIVALENT âœ“** |   0.06 ms   | *Miter UNSAT â€” Protocol invariant verified*                                    |
+| **05_apb_protocol**         | Protocol Handshake      | BUGGY    | **NOT EQUIV âœ—** |   2.26 ms   | `psel=1, penable=0, pwrite=1, curr=255` $\to$ C=`255`, RTL=`0`            |
+| **06_axi_protocol**         | Multi-Channel Handshake | VALID    | **EQUIVALENT âœ“** |   0.07 ms   | *Miter UNSAT â€” Channel invariant verified*                                     |
+| **06_axi_protocol**         | Multi-Channel Handshake | BUGGY    | **NOT EQUIV âœ—** |   1.58 ms   | `awvalid=0, wvalid=1, wstrb=1, curr=255` $\to$ C=`255`, RTL=`0`           |
 
 ### Pytest Verification Suite Execution
 
@@ -253,66 +253,66 @@ To preserve correctness, the capabilities of this framework are explicitly delin
 ## 7. Repository Layout
 
 ```
-c2rtl-equiv-checker/
-│
-├── benchmarks/
-│   ├── 01_alu_combinational/
-│   │   ├── spec.c                 # C behavioral reference
-│   │   ├── rtl_valid.v            # Valid 32-bit ALU Verilog
-│   │   └── rtl_buggy.v            # Buggy ALU (4-bit shift bug)
-│   ├── 02_gcd_sequential/
-│   │   ├── spec.c                 # C subtraction GCD reference
-│   │   ├── rtl_valid.v            # Valid Euclidean GCD FSM
-│   │   └── rtl_buggy.v            # Buggy GCD (inverted comparator)
-│   ├── 03_fir_filter_pipelined/
-│   │   ├── spec.c                 # C 4-tap symmetric FIR reference
-│   │   ├── rtl_valid.v            # Valid 3-stage pipelined FIR
-│   │   └── rtl_buggy.v            # Buggy FIR (stage-2 product truncation)
-│   ├── 04_crc8_controller/
-│   │   ├── spec.c                 # C bit-serial CRC-8 reference
-│   │   ├── rtl_valid.v            # Valid CRC-8 generator (0x07 poly)
-│   │   └── rtl_buggy.v            # Buggy CRC-8 generator (0x05 poly)
-│   ├── 05_apb_protocol/
-│   │   ├── spec.c                 # C APB protocol transaction model
-│   │   ├── rtl_valid.v            # Valid APB slave controller
-│   │   └── rtl_buggy.v            # Buggy APB (setup-phase write violation)
-│   └── 06_axi_protocol/
-│       ├── spec.c                 # C AXI protocol transaction model
-│       ├── rtl_valid.v            # Valid AXI write channel controller
-│       └── rtl_buggy.v            # Buggy AXI (unsynchronized write channel)
-│
-├── src/
-│   ├── __init__.py                # Package metadata
-│   ├── c_parser_ir.py             # C parser and Z3 BitVec symbolic execution
-│   ├── rtl_parser_ir.py           # Verilog parser and transition system builder
-│   ├── miter_builder.py           # Formal product machine & term normalization
-│   ├── smt_checker.py             # Z3 SMT solver interface & counterexample extractor
-│   ├── sva_generator.py           # SystemVerilog Assertion (SVA) and .sby generator
-│   └── cli.py                     # Command-line interface orchestrator
-│
-├── generated_sva/                 # Auto-generated SVA formal wrappers & .sby files
-│   ├── 01_alu_combinational_formal.sv
-│   ├── 01_alu_combinational.sby
-│   ├── 02_gcd_sequential_formal.sv
-│   ├── 02_gcd_sequential.sby
-│   ├── 03_fir_filter_pipelined_formal.sv
-│   ├── 03_fir_filter_pipelined.sby
-│   ├── 04_crc8_controller_formal.sv
-│   ├── 04_crc8_controller.sby
-│   ├── 05_apb_protocol_formal.sv
-│   ├── 05_apb_protocol.sby
-│   ├── 06_axi_protocol_formal.sv
-│   └── 06_axi_protocol.sby
-│
-├── scripts/
-│   ├── run_all_checks.sh          # Linux/macOS bash runner
-│   ├── run_all_checks.ps1         # Windows PowerShell runner
-│   └── run_yosys_sby.sh           # SymbiYosys verification runner
-│
-├── tests/
-│   └── test_equivalence.py       # Pytest regression suite (18 tests)
-│
-├── requirements.txt               # Dependencies: z3-solver, pycparser, pytest, tabulate
-├── README.md                      # Complete setup, architecture & results guide
-└── PROJECT_REPORT.md              # Technical project report
+C-to-RTL-Equivalence-Checker/
+â”‚
+â”œâ”€â”€ benchmarks/
+â”‚   â”œâ”€â”€ 01_alu_combinational/
+â”‚   â”‚   â”œâ”€â”€ spec.c                 # C behavioral reference
+â”‚   â”‚   â”œâ”€â”€ rtl_valid.v            # Valid 32-bit ALU Verilog
+â”‚   â”‚   â””â”€â”€ rtl_buggy.v            # Buggy ALU (4-bit shift bug)
+â”‚   â”œâ”€â”€ 02_gcd_sequential/
+â”‚   â”‚   â”œâ”€â”€ spec.c                 # C subtraction GCD reference
+â”‚   â”‚   â”œâ”€â”€ rtl_valid.v            # Valid Euclidean GCD FSM
+â”‚   â”‚   â””â”€â”€ rtl_buggy.v            # Buggy GCD (inverted comparator)
+â”‚   â”œâ”€â”€ 03_fir_filter_pipelined/
+â”‚   â”‚   â”œâ”€â”€ spec.c                 # C 4-tap symmetric FIR reference
+â”‚   â”‚   â”œâ”€â”€ rtl_valid.v            # Valid 3-stage pipelined FIR
+â”‚   â”‚   â””â”€â”€ rtl_buggy.v            # Buggy FIR (stage-2 product truncation)
+â”‚   â”œâ”€â”€ 04_crc8_controller/
+â”‚   â”‚   â”œâ”€â”€ spec.c                 # C bit-serial CRC-8 reference
+â”‚   â”‚   â”œâ”€â”€ rtl_valid.v            # Valid CRC-8 generator (0x07 poly)
+â”‚   â”‚   â””â”€â”€ rtl_buggy.v            # Buggy CRC-8 generator (0x05 poly)
+â”‚   â”œâ”€â”€ 05_apb_protocol/
+â”‚   â”‚   â”œâ”€â”€ spec.c                 # C APB protocol transaction model
+â”‚   â”‚   â”œâ”€â”€ rtl_valid.v            # Valid APB slave controller
+â”‚   â”‚   â””â”€â”€ rtl_buggy.v            # Buggy APB (setup-phase write violation)
+â”‚   â””â”€â”€ 06_axi_protocol/
+â”‚       â”œâ”€â”€ spec.c                 # C AXI protocol transaction model
+â”‚       â”œâ”€â”€ rtl_valid.v            # Valid AXI write channel controller
+â”‚       â””â”€â”€ rtl_buggy.v            # Buggy AXI (unsynchronized write channel)
+â”‚
+â”œâ”€â”€ src/
+â”‚   â”œâ”€â”€ __init__.py                # Package metadata
+â”‚   â”œâ”€â”€ c_parser_ir.py             # C parser and Z3 BitVec symbolic execution
+â”‚   â”œâ”€â”€ rtl_parser_ir.py           # Verilog parser and transition system builder
+â”‚   â”œâ”€â”€ miter_builder.py           # Formal product machine & term normalization
+â”‚   â”œâ”€â”€ smt_checker.py             # Z3 SMT solver interface & counterexample extractor
+â”‚   â”œâ”€â”€ sva_generator.py           # SystemVerilog Assertion (SVA) and .sby generator
+â”‚   â””â”€â”€ cli.py                     # Command-line interface orchestrator
+â”‚
+â”œâ”€â”€ generated_sva/                 # Auto-generated SVA formal wrappers & .sby files
+â”‚   â”œâ”€â”€ 01_alu_combinational_formal.sv
+â”‚   â”œâ”€â”€ 01_alu_combinational.sby
+â”‚   â”œâ”€â”€ 02_gcd_sequential_formal.sv
+â”‚   â”œâ”€â”€ 02_gcd_sequential.sby
+â”‚   â”œâ”€â”€ 03_fir_filter_pipelined_formal.sv
+â”‚   â”œâ”€â”€ 03_fir_filter_pipelined.sby
+â”‚   â”œâ”€â”€ 04_crc8_controller_formal.sv
+â”‚   â”œâ”€â”€ 04_crc8_controller.sby
+â”‚   â”œâ”€â”€ 05_apb_protocol_formal.sv
+â”‚   â”œâ”€â”€ 05_apb_protocol.sby
+â”‚   â”œâ”€â”€ 06_axi_protocol_formal.sv
+â”‚   â””â”€â”€ 06_axi_protocol.sby
+â”‚
+â”œâ”€â”€ scripts/
+â”‚   â”œâ”€â”€ run_all_checks.sh          # Linux/macOS bash runner
+â”‚   â”œâ”€â”€ run_all_checks.ps1         # Windows PowerShell runner
+â”‚   â””â”€â”€ run_yosys_sby.sh           # SymbiYosys verification runner
+â”‚
+â”œâ”€â”€ tests/
+â”‚   â””â”€â”€ test_equivalence.py       # Pytest regression suite (18 tests)
+â”‚
+â”œâ”€â”€ requirements.txt               # Dependencies: z3-solver, pycparser, pytest, tabulate
+â”œâ”€â”€ README.md                      # Complete setup, architecture & results guide
+â””â”€â”€ PROJECT_REPORT.md              # Technical project report
 ```

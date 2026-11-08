@@ -1,4 +1,4 @@
-# SymbiYosys configuration — ALU Formal Verification
+ï»¿# SymbiYosys configuration ï¿½ ALU Formal Verification
 # Run: sby -f 01_alu_combinational.sby
 [options]
 mode prove
@@ -8,10 +8,10 @@ depth 1
 smtbmc z3
 
 [script]
-read -formal D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\01_alu_combinational/rtl_valid.v
+read -formal ../benchmarks/01_alu_combinational/rtl_valid.v
 read -sv 01_alu_combinational_formal.sv
 prep -top alu_formal_wrapper
 
 [files]
-D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\01_alu_combinational/rtl_valid.v
+../benchmarks/01_alu_combinational/rtl_valid.v
 01_alu_combinational_formal.sv

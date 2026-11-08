@@ -1,4 +1,4 @@
-# SymbiYosys configuration — GCD Formal Verification
+ï»¿# SymbiYosys configuration ï¿½ GCD Formal Verification
 # Run: sby -f 02_gcd_sequential.sby
 [options]
 mode prove
@@ -8,10 +8,10 @@ depth 300
 smtbmc z3
 
 [script]
-read -formal D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\02_gcd_sequential/rtl_valid.v
+read -formal ../benchmarks/02_gcd_sequential/rtl_valid.v
 read -sv 02_gcd_sequential_formal.sv
 prep -top gcd_formal_wrapper
 
 [files]
-D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\02_gcd_sequential/rtl_valid.v
+../benchmarks/02_gcd_sequential/rtl_valid.v
 02_gcd_sequential_formal.sv

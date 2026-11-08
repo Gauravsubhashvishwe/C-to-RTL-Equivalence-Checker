@@ -1,4 +1,4 @@
-# SymbiYosys configuration — AXI Protocol Formal Verification
+ï»¿# SymbiYosys configuration ï¿½ AXI Protocol Formal Verification
 # Run: sby -f 06_axi_protocol.sby
 [options]
 mode prove
@@ -8,10 +8,10 @@ depth 5
 smtbmc z3
 
 [script]
-read -formal D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\06_axi_protocol/rtl_valid.v
+read -formal ../benchmarks/06_axi_protocol/rtl_valid.v
 read -sv 06_axi_protocol_formal.sv
 prep -top axi_protocol_formal_wrapper
 
 [files]
-D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\06_axi_protocol/rtl_valid.v
+../benchmarks/06_axi_protocol/rtl_valid.v
 06_axi_protocol_formal.sv
