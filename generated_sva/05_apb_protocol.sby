@@ -1,0 +1,17 @@
+# SymbiYosys configuration — APB Protocol Formal Verification
+# Run: sby -f 05_apb_protocol.sby
+[options]
+mode prove
+depth 5
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\05_apb_protocol/rtl_valid.v
+read -sv 05_apb_protocol_formal.sv
+prep -top apb_protocol_formal_wrapper
+
+[files]
+D:\CODDING\Project\FV\C-to-RTL-Equivalence-Checker\benchmarks\05_apb_protocol/rtl_valid.v
+05_apb_protocol_formal.sv

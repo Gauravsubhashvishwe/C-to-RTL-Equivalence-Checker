@@ -1,0 +1,17 @@
+﻿# SymbiYosys configuration — CRC-8 Formal Verification
+# Run: sby -f 04_crc8_controller.sby
+[options]
+mode prove
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal ../benchmarks/04_crc8_controller/rtl_valid.v
+read -sv 04_crc8_controller_formal.sv
+prep -top crc8_formal_wrapper
+
+[files]
+../benchmarks/04_crc8_controller/rtl_valid.v
+04_crc8_controller_formal.sv
